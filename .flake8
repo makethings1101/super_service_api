@@ -1,0 +1,15 @@
+[flake8]
+ignore = W292,E402
+exclude =
+    *migrations*,
+    # python related
+    *.pyc,
+    .git,
+    __pycache__,
+    fabfile.py,
+max-line-length=120
+max-complexity=15
+format=pylint
+show_source=True
+statistics=True
+count=True
