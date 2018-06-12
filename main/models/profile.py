@@ -1,12 +1,11 @@
 # coding:utf-8
 
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class CustomerProfile(models.Model):
     user = models.OneToOneField(
-        User,
+        'auth.User',
         on_delete=models.CASCADE
     )
     phone = models.CharField(
@@ -30,9 +29,10 @@ class CustomerProfile(models.Model):
         verbose_name_plural = verbose_name
 
 
-class Maintain(models.Model):
+class Maintainer(models.Model):
+    # 维修人员
     user = models.OneToOneField(
-        User,
+        'auth.User',
         on_delete=models.CASCADE
     )
     name = models.CharField(
@@ -47,8 +47,9 @@ class Maintain(models.Model):
 
 
 class Property(models.Model):
+    # 物管人员
     user = models.OneToOneField(
-        User,
+        'auth.User',
         on_delete=models.CASCADE,
     )
 

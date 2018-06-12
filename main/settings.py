@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'super_service_api.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 
 # Database
@@ -122,9 +122,8 @@ SWAGGER_SETTINGS = {
 }
 
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
-    'JWT_RESPONSE_PAYLOAD_HANDLER':
-        'main.utils.jwt.jwt_response_payload_handler',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1)
+
 }
 
 REST_FRAMEWORK = {
@@ -147,7 +146,6 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.FileUploadParser',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'main.utils.pagination.Pagination',
     'PAGE_SIZE': 10
 }
 
