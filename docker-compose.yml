@@ -3,7 +3,7 @@ services:
   dev:
     build: .
     image: localhost:7070/super_service:dev
-    commond: python manage.py runserver 0.0.0.0:7070
+    command: python manage.py runserver 0.0.0.0:7070
     container_name: super_service_api
     volumes:
       - .:/code
@@ -18,7 +18,7 @@ services:
   pro:
     build: .
     image: localhost:7070/super_service:master
-    commond: superviord -c /code/deploy/superviord.conf
+    command: superviord -c /code/deploy/superviord.conf
     volumes:
       - .:/code
       - /data/super_service_api:/data
