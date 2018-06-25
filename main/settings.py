@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'rest_framework_jwt',
-    'main'
+    'main',
+    'main.apps.order'
 ]
 
 MIDDLEWARE = [
@@ -146,7 +147,7 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.FileUploadParser',
     ),
-    'PAGE_SIZE': 10
+
 }
 
 

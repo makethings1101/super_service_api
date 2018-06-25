@@ -14,8 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from rest_framework_swagger.views import get_swagger_view
+from rest_framework_jwt.views import ObtainJSONWebToken
+
+docs_url = get_swagger_view(title='super service')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('docs/', docs_url),
+    path('', include('main.apps.order.urls')),
+    path('login/', ObtainJSONWebToken.as_view())
 ]
