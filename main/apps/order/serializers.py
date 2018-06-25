@@ -10,13 +10,14 @@ class OrderSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         instance = super(OrderSerializer, self).create(validated_data)
         # 获取维修人员订单小于5的
-        Maintainer.objects.aggregate(
+        a = Maintainer.objects.aggregate(
             doing=Sum(
                 Case(
-                    When()
+                    When(user__order_order_status=5, then=1)
                 )
             )
         )
+        return instance
 
     class Meta:
         model = Order
