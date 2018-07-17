@@ -2,7 +2,7 @@ version: "3"
 services:
   dev:
     build: .
-    image: localhost:7070/super_service:dev
+    image: hub.gaoshiwang.cn/super_service:dev
     command: python manage.py runserver 0.0.0.0:7070
     container_name: super_service_api
     volumes:
@@ -17,7 +17,7 @@ services:
 
   pro:
     build: .
-    image: localhost:7070/super_service:master
+    image: hub.gaoshiwang.cn/super_service:master
     command: superviord -c /code/deploy/superviord.conf
     volumes:
       - .:/code

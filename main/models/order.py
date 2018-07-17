@@ -30,11 +30,13 @@ class Order(models.Model):
     customer = models.ForeignKey(
         'main.CustomerProfile',
         on_delete=models.CASCADE,
-        blank=True
+        blank=True,
+        null=True,
     )
-    wx_type = models.ForeignKey(
-        'main.WxType',
-        on_delete=models.CASCADE
+    wx_type = models.CharField(
+        '维修类型',
+        max_length=200,
+        default='',
     )
     user_remark = models.CharField(
         '用户报修描述',
@@ -56,22 +58,27 @@ class Order(models.Model):
         '取消备注',
         max_length=200,
         default='',
-        blank=True
+        blank=True,
+        null=True
     )
     user_grade = models.IntegerField(
         '用户评分',
         choices=GRADE,
         blank=True,
+        null=True,
         help_text='用户评价等级'
     )
     user_evaluate = models.CharField(
         '用户评价',
         max_length=200,
+        blank=True,
+        null=True,
     )
     wx_user = models.ForeignKey(
         'main.Maintainer',
         on_delete=models.CASCADE,
-        blank=True
+        blank=True,
+        null=True
     )
 
     def __unicode__(self):
