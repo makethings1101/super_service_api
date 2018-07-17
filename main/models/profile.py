@@ -45,6 +45,10 @@ class Maintainer(models.Model):
         max_length=20
     )
 
+    class Meta:
+        verbose_name = '维修人员'
+        verbose_name_plural = verbose_name
+
 
 class Property(models.Model):
     # 物管人员

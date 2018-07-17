@@ -10,7 +10,7 @@ class OrderViews(mixins.CreateModelMixin,
                  mixins.UpdateModelMixin,
                  viewsets.GenericViewSet):
     serializer_class = OrderSerializer
-    queryset = Order.objects.filter
+    queryset = Order.objects.all()
 
     # 用户订单管理中心。包含创建，查看更新。
     def get_queryset(self):
@@ -18,6 +18,5 @@ class OrderViews(mixins.CreateModelMixin,
         return query_set.filter(customer=self.request.user.customerprofile)
 
     def perform_create(self, serializer):
-        serializer.save()
         serializer.customer = self.request.user.customerprofile
         serializer.save()
